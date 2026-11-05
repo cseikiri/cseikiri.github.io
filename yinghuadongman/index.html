@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樱花动漫-樱花动漫在线观看_新番连载与番剧索引</title>
+<meta name="description" content="樱花动漫主题首页，整理新番连载、番剧索引与观看入口，提供按季度、类型和年份查找动画的清晰路径，帮助访问者快速了解站内内容组织与使用方式。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f7d9e3'/%3E%3Cg fill='%23e8749b'%3E%3Cellipse cx='32' cy='20' rx='7' ry='10'/%3E%3Cellipse cx='32' cy='20' rx='7' ry='10' transform='rotate(72 32 32)'/%3E%3Cellipse cx='32' cy='20' rx='7' ry='10' transform='rotate(144 32 32)'/%3E%3Cellipse cx='32' cy='20' rx='7' ry='10' transform='rotate(216 32 32)'/%3E%3Cellipse cx='32' cy='20' rx='7' ry='10' transform='rotate(288 32 32)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='6' fill='%23fff5f8'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --pink:#e8749b;
+    --pink-deep:#c94f7c;
+    --pink-soft:#fbe6ee;
+    --ink:#2c2530;
+    --ink-soft:#5f5566;
+    --line:#f0dbe4;
+    --bg:#fffafc;
+    --card:#ffffff;
+    --leaf:#8fb98a;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pink-deep);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img,svg{max-width:100%;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+  /* header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,250,252,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;padding:12px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand svg{width:38px;height:38px;flex:none;}
+  .brand-text{
+    font-size:1.22rem;font-weight:800;letter-spacing:.02em;color:var(--ink);
+  }
+  .brand-text span{color:var(--pink-deep);}
+  nav.main ul{
+    display:flex;gap:6px;list-style:none;margin:0;padding:0;flex-wrap:wrap;
+  }
+  nav.main a{
+    display:inline-block;padding:6px 12px;border-radius:999px;
+    font-size:.94rem;color:var(--ink-soft);
+  }
+  nav.main a:hover{background:var(--pink-soft);color:var(--pink-deep);text-decoration:none;}
+
+  /* hero */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#fff 0%,#fdeef4 60%,#fbe0ea 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+    padding:56px 0 60px;
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,4.4vw,2.9rem);
+    line-height:1.28;margin:0 0 16px;letter-spacing:.01em;
+  }
+  .hero h1 em{color:var(--pink-deep);font-style:normal;}
+  .hero p.lead{
+    font-size:1.02rem;color:var(--ink-soft);margin:0 0 24px;max-width:34em;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-block;padding:11px 22px;border-radius:999px;
+    font-weight:700;font-size:.98rem;border:1px solid transparent;
+    transition:.2s;
+  }
+  .btn-primary{background:var(--pink-deep);color:#fff;}
+  .btn-primary:hover{background:#b0406b;text-decoration:none;}
+  .btn-ghost{background:#fff;color:var(--pink-deep);border-color:var(--pink);}
+  .btn-ghost:hover{background:var(--pink-soft);text-decoration:none;}
+  .btn[aria-disabled="true"]{pointer-events:none;opacity:.62;}
+  .hero-visual{position:relative;display:flex;justify-content:center;}
+  .hero-visual svg{width:100%;max-width:340px;height:auto;}
+  .hero-stats{
+    display:flex;gap:28px;margin-top:28px;flex-wrap:wrap;
+  }
+  .hero-stats div{font-size:.85rem;color:var(--ink-soft);}
+  .hero-stats strong{display:block;font-size:1.3rem;color:var(--pink-deep);line-height:1.3;}
+
+  /* generic section */
+  section{padding:52px 0;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{
+    font-size:1.42rem;margin:0 0 8px;letter-spacing:.01em;
+  }
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:.95rem;max-width:46em;}
+  .kicker{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;
+    color:var(--pink-deep);background:var(--pink-soft);
+    padding:3px 10px;border-radius:999px;margin-bottom:10px;
+  }
+
+  /* season / entry cards */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;display:flex;flex-direction:column;gap:10px;
+    box-shadow:0 2px 0 rgba(232,116,155,.04);
+    transition:transform .18s,box-shadow .18s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(201,79,124,.10);}
+  .card .icon{width:34px;height:34px;color:var(--pink);}
+  .card h3{margin:0;font-size:1.06rem;}
+  .card p{margin:0;font-size:.92rem;color:var(--ink-soft);}
+  .card .meta{
+    margin-top:auto;font-size:.8rem;color:var(--pink-deep);
+    font-weight:700;letter-spacing:.04em;
+  }
+
+  /* index table */
+  .index-list{
+    list-style:none;margin:0;padding:0;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .index-list li{
+    display:flex;align-items:center;gap:14px;padding:14px 20px;
+    border-bottom:1px solid var(--line);font-size:.95rem;
+  }
+  .index-list li:last-child{border-bottom:none;}
+  .index-list .tag{
+    flex:none;font-size:.75rem;font-weight:700;color:var(--pink-deep);
+    background:var(--pink-soft);border-radius:6px;padding:2px 8px;min-width:56px;text-align:center;
+  }
+  .index-list .txt{color:var(--ink-soft);}
+  .index-list .txt b{color:var(--ink);font-weight:700;}
+
+  /* two-column note */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;}
+  .note-box{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+  }
+  .note-box h3{margin:0 0 10px;font-size:1.06rem;}
+  .note-box p{margin:0 0 10px;font-size:.93rem;color:var(--ink-soft);}
+  .note-box p:last-child{margin-bottom:0;}
+  .checklist{list-style:none;margin:0;padding:0;}
+  .checklist li{
+    position:relative;padding-left:26px;margin-bottom:9px;
+    font-size:.93rem;color:var(--ink-soft);
+  }
+  .checklist li::before{
+    content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;
+    border-radius:50%;background:var(--leaf);
+  }
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step;}
+  .step{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;position:relative;
+  }
+  .step::before{
+    counter-increment:step;content:counter(step);
+    display:flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--pink-deep);color:#fff;font-weight:800;font-size:.9rem;
+    margin-bottom:12px;
+  }
+  .step h4{margin:0 0 8px;font-size:1rem;}
+  .step p{margin:0;font-size:.9rem;color:var(--ink-soft);}
+
+  /* CTA band */
+  .cta{
+    background:linear-gradient(120deg,#fdeef4,#fbe0ea);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .cta-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:38px 0;flex-wrap:wrap;
+  }
+  .cta-inner h2{margin:0;font-size:1.32rem;}
+  .cta-inner p{margin:6px 0 0;font-size:.92rem;color:var(--ink-soft);}
+
+  /* footer */
+  footer.site{
+    background:#2c2530;color:#e8dde6;padding:40px 0 28px;font-size:.9rem;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;
+    padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .foot-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff;}
+  .foot-grid p{margin:0;color:#b9aab6;line-height:1.7;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;}
+  .foot-grid li{margin-bottom:7px;}
+  .foot-grid a{color:#d8c8d3;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{padding-top:18px;color:#9a8b96;font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;padding:40px 0 44px;gap:28px;}
+    .hero-visual{order:-1;max-width:250px;margin:0 auto;}
+    .grid-3,.steps{grid-template-columns:1fr 1fr;}
+    .split{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .head-inner{flex-direction:column;align-items:flex-start;gap:8px;}
+    nav.main ul{gap:2px;}
+    nav.main a{padding:5px 9px;font-size:.88rem;}
+    .grid-3,.steps{grid-template-columns:1fr;}
+    .hero-stats{gap:18px;}
+    .index-list li{flex-wrap:wrap;gap:8px;}
+    .foot-grid{grid-template-columns:1fr;}
+    section{padding:40px 0;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#fbe6ee"/>
+        <g fill="#e8749b">
+          <ellipse cx="32" cy="20" rx="7" ry="10"/>
+          <ellipse cx="32" cy="20" rx="7" ry="10" transform="rotate(72 32 32)"/>
+          <ellipse cx="32" cy="20" rx="7" ry="10" transform="rotate(144 32 32)"/>
+          <ellipse cx="32" cy="20" rx="7" ry="10" transform="rotate(216 32 32)"/>
+          <ellipse cx="32" cy="20" rx="7" ry="10" transform="rotate(288 32 32)"/>
+        </g>
+        <circle cx="32" cy="32" r="6" fill="#fff5f8"/>
+      </svg>
+      <span class="brand-text">樱花动漫</span>
+    </div>
+    <nav class="main" aria-label="主导航">
+      <ul>
+        <li><a href="#new">新番连载</a></li>
+        <li><a href="#index">番剧索引</a></li>
+        <li><a href="#guide">观看指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="kicker">动画番剧 · 主题首页</span>
+      <h1>樱花动漫</h1>
+      <p class="lead">樱花动漫是一个围绕动画番剧整理内容的主题页面。这里把新番连载、季度与年份索引、类型分类和观看入口放在一起，让访问者先用一句话判断“想看什么”，再决定从哪个区块进入。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#new">浏览新番连载</a>
+        <a class="btn btn-ghost" href="#index">查看番剧索引</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>4 类</strong>季度与年份索引维度</div>
+        <div><strong>3 步</strong>选番到开看的路径</div>
+        <div><strong>1 处</strong>集中查看的连载入口</div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 320 280" role="presentation">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff4f8"/>
+            <stop offset="1" stop-color="#f9d7e4"/>
+          </linearGradient>
+        </defs>
+        <rect x="8" y="8" width="304" height="264" rx="24" fill="url(#sky)"/>
+        <circle cx="236" cy="66" r="26" fill="#fbe0ea"/>
+        <g fill="#e8749b" opacity=".9">
+          <g transform="translate(96 118)">
+            <ellipse cx="0" cy="-18" rx="9" ry="14"/>
+            <ellipse cx="0" cy="-18" rx="9" ry="14" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-18" rx="9" ry="14" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-18" rx="9" ry="14" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-18" rx="9" ry="14" transform="rotate(288)"/>
+            <circle cx="0" cy="0" r="7" fill="#fff5f8"/>
+          </g>
+        </g>
+        <g fill="#f3b8cc">
+          <circle cx="60" cy="70" r="5"/>
+          <circle cx="210" cy="160" r="4"/>
+          <circle cx="262" cy="200" r="6"/>
+          <circle cx="48" cy="196" r="4"/>
+        </g>
+        <g fill="#8fb98a" opacity=".75">
+          <path d="M150 230c10-26 24-38 44-44-16 20-24 32-26 44z"/>
+          <path d="M172 232c14-20 30-28 50-30-18 14-28 22-32 32z"/>
+        </g>
+        <rect x="60" y="212" width="200" height="10" rx="5" fill="#fff" opacity=".8"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section id="new">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">新番连载</span>
+        <h2>按连载节奏安排追番入口</h2>
+        <p>新番区块解决的是“现在正在播什么、下一集什么时候到”的问题。樱花动漫把连载中的作品按更新节奏分组，便于一次看完本周待追内容，而不是反复翻找列表。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <h3>每周更新表</h3>
+          <p>以周为单位列出连载作品与更新日，适合固定时间追番的习惯。列表按星期排序，周末集中补看时更直观。</p>
+          <span class="meta">入口：本周更新</span>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
+          <h3>本季新作</h3>
+          <p>按季度归档当季开播作品，区分续作与全新企划，方便判断是否需要先补前作再进入观看。</p>
+          <span class="meta">入口：当季列表</span>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l2.6 5.6L21 9.4l-4.5 4.3 1.1 6.3L12 17l-5.6 3 1.1-6.3L3 9.4l6.4-.8z"/></svg>
+          <h3>口碑推荐</h3>
+          <p>整理讨论度较高的作品条目，附上类型与篇幅说明，减少“点进去才发现不合口味”的试错成本。</p>
+          <span class="meta">入口：推荐条目</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="index" style="background:#fff;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">番剧索引</span>
+        <h2>用四条线索缩小查找范围</h2>
+        <p>樱花动漫的索引不追求堆量，而是把查找方式讲清楚：先定时间，再定类型，最后用关键词收窄，任何一步都可以单独使用。</p>
+      </div>
+      <ul class="index-list">
+        <li>
+          <span class="tag">季度</span>
+          <span class="txt"><b>春季、夏季、秋季、冬季</b>四个档期，按开播月份归属，适合查看某一季度的整体片单。</span>
+        </li>
+        <li>
+          <span class="tag">年份</span>
+          <span class="txt"><b>按年份回溯</b>，用于查找较早作品或核对某部动画的首播时间，常与季度条件组合使用。</span>
+        </li>
+        <li>
+          <span class="tag">类型</span>
+          <span class="txt"><b>日常、热血、悬疑、恋爱、科幻</b>等分类，对应观看情绪而非排播信息，适合先定口味再挑作品。</span>
+        </li>
+        <li>
+          <span class="tag">关键词</span>
+          <span class="txt"><b>作品名或角色名</b>直接检索，输入片段即可匹配，适合已经知道目标、只想快速定位的情况。</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">观看指南</span>
+        <h2>从选番到开看的三步</h2>
+        <p>对第一次访问樱花动漫的读者，下面这条路径覆盖了最常见的使用顺序；已有明确目标的访问者可以直接跳到第三步。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h4>确定时间或口味</h4>
+          <p>如果只想跟上当季进度，从新番连载进入；如果已有偏好，用类型索引先筛一轮。</p>
+        </div>
+        <div class="step">
+          <h4>核对条目信息</h4>
+          <p>查看作品的篇幅、开播年份与类型标签，续作类作品留意是否需要先补前作。</p>
+        </div>
+        <div class="step">
+          <h4>进入观看页</h4>
+          <p>在条目页确认集数与更新状态后进入播放，连载作品可在同一入口回看已更新剧集。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="background:#fff;">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="sec-head">
+            <span class="kicker">常见问题</span>
+            <h2>访问前可以先了解的几件事</h2>
+            <p>这些问题集中出现在初次访问时，提前说明能减少在页面之间来回确认的时间。</p>
+          </div>
+          <div class="note-box" style="margin-bottom:18px;">
+            <h3>索引里的作品为什么不是全部？</h3>
+            <p>索引按可确认的条目信息整理，篇幅与类型标注以公开资料为准。未收录的作品不代表不存在，可以通过关键词检索再次尝试。</p>
+          </div>
+          <div class="note-box">
+            <h3>新番更新时间会变吗？</h3>
+            <p>排播可能因档期调整而变化，页面标注的更新日用于参考。遇到停更或改期，以条目页的最新说明为准。</p>
+          </div>
+        </div>
+        <div>
+          <div class="note-box" style="height:100%;">
+            <h3>使用樱花动漫的几条建议</h3>
+            <ul class="checklist">
+              <li>追连载时先看每周更新表，再决定补看顺序。</li>
+              <li>用年份与季度组合筛选，比逐页翻找更快。</li>
+              <li>类型标签用于初筛，具体风格仍以条目简介为准。</li>
+              <li>续作优先确认前作是否已看，避免剧情衔接不上。</li>
+              <li>移动端阅读时，导航固定在顶部，可随时切换栏目。</li>
+            </ul>
+            <p style="margin-top:14px;">如果只是想找一部当下能看的作品，从本季新作进入通常是最省时的选择。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap cta-inner">
+      <div>
+        <h2>开始使用樱花动漫</h2>
+        <p>先选一个入口：想追更新就进新番连载，想找旧作就走番剧索引。</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#new">进入新番连载</a>
+        <a class="btn btn-ghost" href="#index">打开番剧索引</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>樱花动漫</h4>
+        <p>围绕动画番剧整理内容与查找路径的主题首页，覆盖新番连载、季度年份索引与观看指南。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#new">新番连载</a></li>
+          <li><a href="#index">番剧索引</a></li>
+          <li><a href="#guide">观看指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li>索引按季度、年份、类型与关键词组织</li>
+          <li>排播信息以条目页说明为准</li>
+          <li>移动端导航固定于页面顶部</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>樱花动漫 · 动画番剧主题首页</span>
+      <span>内容按公开资料整理，供查找与了解使用</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
