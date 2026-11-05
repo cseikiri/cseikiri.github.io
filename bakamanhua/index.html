@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴卡漫画-在线漫画阅读平台_免费漫画大全_热门漫画推荐</title>
+<meta name="description" content="巴卡漫画是在线漫画阅读平台，提供免费漫画大全与热门漫画推荐，涵盖热血、恋爱、玄幻、悬疑等题材，支持在线漫画阅读与每日更新。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316181f'/%3E%3Cpath d='M14 18h16c6 0 10 4 10 9s-4 9-10 9H22v10h-8z' fill='%23ffb648'/%3E%3Ccircle cx='46' cy='46' r='7' fill='%23ff5f6d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#12141a;
+  --bg2:#181b23;
+  --card:#1e222c;
+  --line:#2b3140;
+  --text:#e8ebf2;
+  --sub:#a2aabb;
+  --brand:#ffb648;
+  --brand2:#ff5f6d;
+  --radius:14px;
+  --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(18,20,26,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;gap:24px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px;white-space:nowrap}
+.logo svg{width:30px;height:30px;flex:none}
+.logo span{background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav.main{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.main a{font-size:14px;color:var(--sub);padding:7px 12px;border-radius:8px;transition:.2s}
+nav.main a:hover,nav.main a:focus{color:var(--text);background:var(--card)}
+.nav-cta{
+  font-size:14px;font-weight:600;padding:8px 16px;border-radius:9px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));color:#1a1206;white-space:nowrap;
+}
+.nav-cta:hover{filter:brightness(1.08)}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(700px 320px at 82% -10%,rgba(255,95,109,.18),transparent 70%),
+    radial-gradient(600px 300px at 10% 0%,rgba(255,182,72,.14),transparent 70%),
+    var(--bg2);
+}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:64px 0 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--brand);border:1px solid rgba(255,182,72,.35);background:rgba(255,182,72,.08);padding:4px 12px;border-radius:999px;margin-bottom:18px}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.2;font-weight:800;letter-spacing:.5px;margin-bottom:16px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--sub);font-size:15.5px;max-width:520px;margin-bottom:26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;padding:11px 22px;border-radius:10px;transition:.2s;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#1a1206}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--card)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
+.hero-stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.hero-stats div{font-size:13px;color:var(--sub)}
+.hero-stats b{display:block;font-size:20px;color:var(--text);font-weight:800}
+
+/* section base */
+section.block{padding:56px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:22px;font-weight:800;letter-spacing:.4px}
+.sec-head h2::before{content:"";display:inline-block;width:5px;height:19px;border-radius:3px;background:linear-gradient(180deg,var(--brand),var(--brand2));margin-right:10px;vertical-align:-2px}
+.sec-head p{font-size:13.5px;color:var(--sub)}
+
+/* category chips */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.chip{font-size:13.5px;padding:6px 15px;border-radius:999px;border:1px solid var(--line);color:var(--sub);background:var(--bg2);cursor:pointer;transition:.2s;font-family:inherit}
+.chip:hover{color:var(--text);border-color:#3b4356}
+.chip.active{color:#1a1206;background:linear-gradient(135deg,var(--brand),var(--brand2));border-color:transparent;font-weight:600}
+
+/* comic grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.comic{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.22s;display:flex;flex-direction:column;
+}
+.comic:hover{transform:translateY(-4px);border-color:#3c4458;box-shadow:0 14px 28px rgba(0,0,0,.35)}
+.cover{position:relative;aspect-ratio:3/4;overflow:hidden}
+.cover svg{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:rgba(18,20,26,.82);color:var(--brand);border:1px solid rgba(255,182,72,.4)}
+.comic-body{padding:13px 14px 15px}
+.comic-body h3{font-size:15px;font-weight:700;margin-bottom:5px}
+.comic-body p{font-size:12.5px;color:var(--sub);line-height:1.6}
+.comic-meta{display:flex;justify-content:space-between;font-size:12px;color:#7b8397;margin-top:9px;padding-top:9px;border-top:1px solid var(--line)}
+
+/* guide article */
+.guide{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start}
+.guide h2{font-size:22px;font-weight:800;margin-bottom:16px}
+.guide h3{font-size:16px;font-weight:700;margin:22px 0 8px;color:var(--brand)}
+.guide p{font-size:14.5px;color:var(--sub);margin-bottom:12px}
+.guide p strong{color:var(--text)}
+.steps{list-style:none;counter-reset:s}
+.steps li{
+  counter-increment:s;position:relative;padding:14px 16px 14px 52px;
+  background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;font-size:14px;color:var(--sub);
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:14px;top:13px;width:24px;height:24px;border-radius:8px;
+  display:grid;place-items:center;font-size:12.5px;font-weight:800;color:#1a1206;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+}
+.steps li b{color:var(--text)}
+
+/* feature row */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.feature .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(255,182,72,.1);margin-bottom:14px}
+.feature h3{font-size:16px;font-weight:700;margin-bottom:7px}
+.feature p{font-size:13.5px;color:var(--sub)}
+
+/* faq */
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--bg2);margin-bottom:12px;padding:0 18px}
+.faq summary{font-size:14.5px;font-weight:600;cursor:pointer;padding:15px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--brand);font-size:18px;font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq details p{font-size:13.5px;color:var(--sub);padding-bottom:16px}
+
+/* footer */
+footer.site{background:var(--bg2);border-top:1px solid var(--line);padding:40px 0 28px;font-size:13.5px;color:var(--sub)}
+.foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:26px}
+.foot-brand{max-width:360px}
+.foot-brand .logo{margin-bottom:10px}
+.foot-brand p{font-size:13px;line-height:1.8}
+.foot-links{display:flex;gap:56px;flex-wrap:wrap}
+.foot-links h4{font-size:13.5px;color:var(--text);font-weight:700;margin-bottom:10px}
+.foot-links a{display:block;font-size:13px;color:var(--sub);margin-bottom:7px}
+.foot-links a:hover{color:var(--brand)}
+.foot-bot{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#6f7789}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:44px 0 40px;gap:28px}
+  .hero-art{max-width:380px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .guide{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+  nav.main{display:none}
+  .nav-inner{justify-content:space-between}
+  .foot-links{gap:34px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 16px}
+  section.block{padding:40px 0}
+  .grid{gap:14px}
+  .comic-body{padding:11px 11px 13px}
+  .hero-stats{gap:20px}
+  .hero-stats b{font-size:17px}
+  h1{font-size:29px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#" aria-label="巴卡漫画首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#22262f"/>
+        <path d="M14 18h16c6 0 10 4 10 9s-4 9-10 9H22v10h-8z" fill="#ffb648"/>
+        <circle cx="46" cy="46" r="7" fill="#ff5f6d"/>
+      </svg>
+      <span>巴卡漫画</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#hot">热门推荐</a>
+      <a href="#cats">分类导航</a>
+      <a href="#guide">阅读指南</a>
+      <a href="#features">平台特色</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="nav-cta" href="#hot">开始阅读</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">在线漫画阅读 · 每日更新</span>
+        <h1>巴卡漫画</h1>
+        <p class="lead">巴卡漫画是一个面向漫画爱好者的在线阅读平台，聚合热血、恋爱、玄幻、悬疑等题材作品，提供清晰的分类浏览与章节阅读入口，让每一次打开页面都能直接找到想看的漫画。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#hot">浏览热门漫画</a>
+          <a class="btn btn-ghost" href="#guide">了解阅读方式</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>6+</b>题材分类</div>
+          <div><b>每日</b>内容更新</div>
+          <div><b>在线</b>直接阅读</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 360" role="img" aria-label="漫画阅读主题插画">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffb648"/><stop offset="1" stop-color="#ff5f6d"/>
+            </linearGradient>
+          </defs>
+          <rect x="30" y="40" width="230" height="290" rx="18" fill="#22262f" stroke="#333a4a"/>
+          <rect x="48" y="60" width="194" height="110" rx="10" fill="#2a2f3b"/>
+          <path d="M60 150l40-46 34 38 28-30 40 38v10H60z" fill="url(#g1)" opacity=".85"/>
+          <circle cx="205" cy="90" r="14" fill="#ffb648" opacity=".9"/>
+          <rect x="48" y="188" width="130" height="10" rx="5" fill="#3b4356"/>
+          <rect x="48" y="208" width="170" height="10" rx="5" fill="#333a4a"/>
+          <rect x="48" y="228" width="150" height="10" rx="5" fill="#333a4a"/>
+          <rect x="48" y="260" width="90" height="28" rx="8" fill="url(#g1)"/>
+          <rect x="250" y="120" width="140" height="180" rx="14" fill="#1b1f28" stroke="#333a4a"/>
+          <rect x="266" y="138" width="108" height="70" rx="8" fill="#2a2f3b"/>
+          <path d="M276 196l26-30 22 24 18-18 22 24v6h-88z" fill="#ff5f6d" opacity=".7"/>
+          <rect x="266" y="222" width="80" height="9" rx="4.5" fill="#3b4356"/>
+          <rect x="266" y="240" width="104" height="9" rx="4.5" fill="#333a4a"/>
+          <rect x="266" y="258" width="66" height="9" rx="4.5" fill="#333a4a"/>
+          <circle cx="330" cy="320" r="16" fill="#2a2f3b" stroke="#ffb648" stroke-width="2"/>
+          <path d="M324 320h12M330 314v12" stroke="#ffb648" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section class="block" id="hot">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热门漫画推荐</h2>
+        <p>按题材浏览，快速进入想读的故事</p>
+      </div>
+      <div class="chips" role="group" aria-label="题材筛选">
+        <button class="chip active" type="button" data-cat="all">全部</button>
+        <button class="chip" type="button" data-cat="热血">热血</button>
+        <button class="chip" type="button" data-cat="恋爱">恋爱</button>
+        <button class="chip" type="button" data-cat="玄幻">玄幻</button>
+        <button class="chip" type="button" data-cat="悬疑">悬疑</button>
+        <button class="chip" type="button" data-cat="日常">日常</button>
+      </div>
+      <div class="grid" id="comicGrid">
+
+        <article class="comic" data-cat="热血">
+          <div class="cover">
+            <span class="badge">热血</span>
+            <svg viewBox="0 0 300 400" aria-hidden="true">
+              <rect width="300" height="400" fill="#2b2420"/>
+              <circle cx="150" cy="150" r="86" fill="#ffb648" opacity=".22"/>
+              <path d="M70 330l60-120 40 60 30-40 30 100z" fill="#ff5f6d" opacity=".8"/>
+              <circle cx="150" cy="140" r="46" fill="#ffb648"/>
+              <path d="M118 132l20-24 14 20 18-24 16 30" stroke="#2b2420" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="comic-body">
+            <h3>炽焰少年</h3>
+            <p>少年在擂台与修行之间寻找自己的答案，热血成长线贯穿始终。</p>
+            <div class="comic-meta"><span>更新中</span><span>热血 · 冒险</span></div>
+          </div>
+        </article>
+
+        <article class="comic" data-cat="恋爱">
+          <div class="cover">
+            <span class="badge">恋爱</span>
+            <svg viewBox="0 0 300 400" aria-hidden="true">
+              <rect width="300" height="400" fill="#2a2230"/>
+              <circle cx="150" cy="170" r="90" fill="#ff5f6d" opacity=".2"/>
+              <path d="M150 250c-40-28-66-52-66-82 0-24 18-40 38-40 12 0 22 6 28 16 6-10 16-16 28-16 20 0 38 16 38 40 0 30-26 54-66 82z" fill="#ff5f6d"/>
+              <rect x="80" y="300" width="140" height="10" rx="5" fill="#4a3b4f"/>
+              <rect x="100" y="322" width="100" height="10" rx="5" fill="#3d3142"/>
+            </svg>
+          </div>
+          <div class="comic-body">
+            <h3>夏日来信</h3>
+            <p>一封迟到多年的信，让两个人在海边小镇重新认识彼此。</p>
+            <div class="comic-meta"><span>连载中</span><span>恋爱 · 治愈</span></div>
+          </div>
+        </article>
+
+        <article class="comic" data-cat="玄幻">
+          <div class="cover">
+            <span class="badge">玄幻</span>
+            <svg viewBox="0 0 300 400" aria-hidden="true">
+              <rect width="300" height="400" fill="#1d2630"/>
+              <circle cx="150" cy="160" r="88" fill="#63c8ff" opacity=".18"/>
+              <path d="M150 60l70 60-70 220-70-220z" fill="#63c8ff" opacity=".55"/>
+              <path d="M150 100l36 46-36 24-36-24z" fill="#ffb648"/>
+              <circle cx="150" cy="310" r="24" fill="none" stroke="#63c8ff" stroke-width="4" opacity=".7"/>
+            </svg>
+          </div>
+          <div class="comic-body">
+            <h3>九霄灵卷</h3>
+            <p>古籍中的灵卷开启，修行者踏入层层进阶的东方幻想世界。</p>
+            <div class="comic-meta"><span>更新中</span><span>玄幻 · 修行</span></div>
+          </div>
+        </article>
+
+        <article class="comic" data-cat="悬疑">
+          <div class="cover">
+            <span class="badge">悬疑</span>
+            <svg viewBox="0 0 300 400" aria-hidden="true">
+              <rect width="300" height="400" fill="#1c1f26"/>
+              <path d="M150 70c-46 0-84 38-84 84 0 62 84 176 84 176s84-114 84-176c0-46-38-84-84-84z" fill="#333a4a"/>
+              <circle cx="150" cy="154" r="30" fill="#ff5f6d" opacity=".85"/>
+              <circle cx="150" cy="154" r="12" fill="#1c1f26"/>
+              <path d="M120 250h60M130 272h40" stroke="#7b8397" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="comic-body">
+            <h3>雨夜档案</h3>
+            <p>一系列看似无关的案件，被同一场雨夜的记录串联起来。</p>
+            <div class="comic-meta"><span>连载中</span><span>悬疑 · 推理</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类导航 -->
+  <section class="block" id="cats">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>分类导航</h2>
+        <p>按阅读偏好进入对应题材</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb648" stroke-width="2" stroke-linecap="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+          </div>
+          <h3>热血与冒险</h3>
+          <p>聚焦成长、竞技与冒险主线，适合喜欢强节奏推进的读者在巴卡漫画中连续追更。</p>
+        </div>
+        <div class="feature">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff5f6d" stroke-width="2" stroke-linecap="round"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg>
+          </div>
+          <h3>恋爱与日常</h3>
+          <p>以人物关系和生活细节为核心，节奏舒缓，适合在碎片时间阅读的漫画题材。</p>
+        </div>
+        <div class="feature">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#63c8ff" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>
+          </div>
+          <h3>玄幻与悬疑</h3>
+          <p>世界观设定与线索铺设并重，适合偏好想象力与推理乐趣的读者分类查找。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 阅读指南 -->
+  <section class="block" id="guide">
+    <div class="wrap guide">
+      <div>
+        <h2>巴卡漫画阅读指南</h2>
+        <p><strong>巴卡漫画</strong>把浏览和阅读拆成两步：先通过题材分类与推荐位确定作品，再进入章节页顺序阅读。首页承担的是“找到下一部想看的漫画”这一任务，因此分类标签、作品卡片和更新时间都集中展示在首屏之后的位置。</p>
+        <h3>如何挑选一部作品</h3>
+        <p>建议先看作品卡片上的题材标签与更新状态。连载中的作品适合追更，更新节奏稳定；标签则能快速判断故事基调，例如热血偏重成长，悬疑偏重线索推进。选定后再进入章节阅读，可以减少反复切换页面的次数。</p>
+        <h3>阅读节奏建议</h3>
+        <p>漫画以画面叙事为主，页面切换频繁时容易打断沉浸感。建议在固定时段集中阅读已更新的章节，遇到关键剧情节点再回到目录查看后续内容。对长篇作品，按卷或按篇章划分阅读区间会更轻松。</p>
+      </div>
+      <div>
+        <h3 style="margin-top:0">三步开始阅读</h3>
+        <ol class="steps">
+          <li><b>选择题材</b>：在热门推荐区点击热血、恋爱、玄幻等标签，缩小浏览范围。</li>
+          <li><b>查看作品信息</b>：阅读卡片上的简介、更新状态与题材标签，判断是否符合偏好。</li>
+          <li><b>进入章节</b>：从作品页进入目录，按顺序阅读，返回首页可继续发现新作品。</li>
+        </ol>
+        <p style="margin-top:18px">若你希望把阅读列表保存到本地，可先通过下载入口获取平台说明文件，后续再替换为实际地址。</p>
+        <p style="margin-top:12px">
+          <a class="btn btn-ghost" href="#" download data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 平台特色 -->
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>平台特色</h2>
+        <p>围绕阅读体验组织页面结构</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb648" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+          </div>
+          <h3>题材分类清晰</h3>
+          <p>巴卡漫画按热血、恋爱、玄幻、悬疑、日常等方向组织作品，标签与卡片信息一一对应，浏览路径直接。</p>
+        </div>
+        <div class="feature">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff5f6d" stroke-width="2" stroke-linecap="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+          <h3>更新状态可见</h3>
+          <p>作品卡片标注连载状态，方便读者判断是否需要追更，也便于安排自己的阅读计划。</p>
+        </div>
+        <div class="feature">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#63c8ff" stroke-width="2" stroke-linecap="round"><path d="M4 18V8a2 2 0 012-2h5l2 2h5a2 2 0 012 2v8"/><path d="M4 18h16"/></svg>
+          </div>
+          <h3>阅读入口集中</h3>
+          <p>从首屏开始阅读按钮到分类导航与指南，主要入口在页头与页尾均可到达，减少寻找成本。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section class="block faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>关于巴卡漫画的阅读与浏览</p>
+      </div>
+      <details open>
+        <summary>巴卡漫画主要提供什么内容？</summary>
+        <p>巴卡漫画以在线漫画阅读为核心，按题材收录热血、恋爱、玄幻、悬疑、日常等方向的作品，并在首页提供推荐位与分类导航，帮助读者快速定位感兴趣的内容。</p>
+      </details>
+      <details>
+        <summary>如何在巴卡漫画中找到想看的题材？</summary>
+        <p>可以在热门推荐区使用题材标签筛选，也可以查看分类导航中每个方向的说明，再进入对应作品卡片阅读简介与更新状态。</p>
+      </details>
+      <details>
+        <summary>作品更新状态在哪里查看？</summary>
+        <p>每张作品卡片下方都标注了连载状态与题材，读者可以据此判断作品是否在持续更新，并安排后续的阅读时间。</p>
+      </details>
+      <details>
+        <summary>下载入口现在可以使用吗？</summary>
+        <p>当前下载入口为占位状态，按钮已标记为暂不可用，待真实地址接入后即可正常获取说明文件。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#" aria-label="巴卡漫画首页">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#22262f"/>
+            <path d="M14 18h16c6 0 10 4 10 9s-4 9-10 9H22v10h-8z" fill="#ffb648"/>
+            <circle cx="46" cy="46" r="7" fill="#ff5f6d"/>
+          </svg>
+          <span>巴卡漫画</span>
+        </a>
+        <p>巴卡漫画是在线漫画阅读平台，围绕题材分类、作品推荐与章节阅读组织内容，帮助读者更快找到下一部想看的漫画。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>浏览</h4>
+          <a href="#hot">热门推荐</a>
+          <a href="#cats">分类导航</a>
+          <a href="#features">平台特色</a>
+        </div>
+        <div>
+          <h4>帮助</h4>
+          <a href="#guide">阅读指南</a>
+          <a href="#faq">常见问题</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2025 巴卡漫画 · 在线漫画阅读</span>
+      <span>题材分类 · 作品推荐 · 章节阅读</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var items = document.querySelectorAll('#comicGrid .comic');
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      chips.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.getAttribute('data-cat');
+      items.forEach(function(item){
+        var match = (cat === 'all') || item.getAttribute('data-cat') === cat;
+        item.style.display = match ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+          </html>
